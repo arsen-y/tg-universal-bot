@@ -1,0 +1,32 @@
+{
+  "name": "tgbot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx nodemon",
+    "watchjs": "npx nodemon --exec 'node ./build/index.js'",
+    "watchts": "npx tsc --watch",
+    "build": "rimraf build && npx tsc",
+    "start": "node ./build/index.js",
+    "format": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,html,md}'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.5.5",
+    "dotenv": "^16.4.5",
+    "mysql2-async": "^2.0.1",
+    "node-telegram-bot-api": "^0.66.0",
+    "openai": "^4.63.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3",
+    "rimraf": "^5.0.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  }
+}
