@@ -10,7 +10,7 @@
 
 ### Глобальные объекты
 
-Глобальные объекты (такие как клиент OpenAI или клиент MySQL) находятся в файле `index.ts`. Эти объекты можно удобно импортировать из этого файла в любую часть приложения, либо можно создать для них отдельный класс, если это необходимо.
+Глобальные объекты (такие как клиент OpenAI или клиент MySQL) находятся в файле `index.ts`. Эти объекты можно удобно импортировать из этого файла в любую часть приложения, либо можно создать для них отдельные классы, если это необходимо.
 
 ### Работа с Middleware
 
@@ -84,7 +84,7 @@ The bot has a simple yet powerful architecture. There is a router where routes a
 
 ### Global Objects
 
-Global objects (such as the OpenAI client or MySQL client) are located in the `index.ts` file. These objects can be easily imported into any part of the application, or you can create a separate class for them if needed.
+Global objects (such as the OpenAI client or MySQL client) are located in the `index.ts` file. These objects can be easily imported into any part of the application, or you can create a separate classes for them if needed.
 
 ### Middleware System
 
