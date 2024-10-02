@@ -1,7 +1,5 @@
 # Универсальный Телеграм AI Бот для Node.js
 
-Перед вами проект для Node.js — Universal Telegram AI Bot.
-
 Бот использует библиотеку `node-telegram-bot-api` для работы с Telegram и библиотеку `openai` для интеграции с ChatGPT. В качестве базы данных используется MySQL. Все настройки указываются в файле `.env`.
 
 ## Архитектура
@@ -73,8 +71,6 @@ UserRQ.run(msg, user)
 ---
 
 # Universal Telegram AI Bot for Node.js
-
-This project is a Universal Telegram AI Bot for Node.js.
 
 The bot uses the `node-telegram-bot-api` library to interact with Telegram and the `openai` library to integrate with ChatGPT. A MySQL database is used. All configurations are specified in the `.env` file.
 
