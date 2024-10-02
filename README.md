@@ -20,6 +20,7 @@
 
 Создание и запуск цепочки middleware:
 
+```js
 const UserRQ = new UserRequest()
 
 UserRQ.use(new Level1())  
@@ -29,6 +30,7 @@ UserRQ.use(new Level4())
 UserRQ.use(new Level5())
 
 UserRQ.run(msg, user)
+```
 
 Бот тестирует пользователя на первых четырех уровнях, формируя специальные запросы к ChatGPT. Если пользователь правильно вводит кодовые слова в ответ, его переводят на следующий уровень. Если ответ неверен, бот направляет пользователя и даёт подсказки.
 
@@ -92,6 +94,7 @@ Thanks to the `IMiddleware` interface, the `AbstractMiddleware` class, and the `
 
 Creating and running the middleware chain:
 
+```js
 const UserRQ = new UserRequest()
 
 UserRQ.use(new Level1())  
@@ -101,6 +104,7 @@ UserRQ.use(new Level4())
 UserRQ.use(new Level5())
 
 UserRQ.run(msg, user)
+```
 
 The bot tests the user during the first four levels by forming special requests to ChatGPT. If the user correctly enters the code words, they are moved to the next level. If the response is incorrect, the bot provides guidance and hints.
 
