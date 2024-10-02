@@ -20,7 +20,6 @@
 
 Создание и запуск цепочки middleware:
 
-```js
 const UserRQ = new UserRequest()
 
 UserRQ.use(new Level1())  
@@ -30,7 +29,6 @@ UserRQ.use(new Level4())
 UserRQ.use(new Level5())
 
 UserRQ.run(msg, user)
-```
 
 Бот тестирует пользователя на первых четырех уровнях, формируя специальные запросы к ChatGPT. Если пользователь правильно вводит кодовые слова в ответ, его переводят на следующий уровень. Если ответ неверен, бот направляет пользователя и даёт подсказки.
 
@@ -46,6 +44,24 @@ UserRQ.run(msg, user)
 
 ![Скриншот2](./tgBot2.png)
 
+## Команды
+
+### npm run watchts
+
+Запуск TypeScript вотчера, который автоматически собирает JS-код в каталог `build`.
+
+### npm run watchjs
+
+Запуск JS-вотчера, который мониторит изменения в каталоге `build` и автоматически перезапускает Node.js. Оба вотчера нужно запускать для отладки.
+
+### npm run start
+
+Запуск проекта в режиме продакшн.
+
+### npm run format
+
+Запуск Prettier для форматирования всех файлов с кодом.
+
 ## Контакты
 
 Мой Telegram для связи:
@@ -58,7 +74,7 @@ UserRQ.run(msg, user)
 
 This project is a Universal Telegram AI Bot for Node.js.
 
-The bot uses the `node-telegram-bot-api` library to interact with Telegram and the `openai` library to work with ChatGPT. A MySQL database is used. All configurations are specified in the `.env` file.
+The bot uses the `node-telegram-bot-api` library to interact with Telegram and the `openai` library to integrate with ChatGPT. A MySQL database is used. All configurations are specified in the `.env` file.
 
 ## Architecture
 
@@ -76,7 +92,6 @@ Thanks to the `IMiddleware` interface, the `AbstractMiddleware` class, and the `
 
 Creating and running the middleware chain:
 
-```js
 const UserRQ = new UserRequest()
 
 UserRQ.use(new Level1())  
@@ -86,11 +101,10 @@ UserRQ.use(new Level4())
 UserRQ.use(new Level5())
 
 UserRQ.run(msg, user)
-```
 
 The bot tests the user during the first four levels by forming special requests to ChatGPT. If the user correctly enters the code words, they are moved to the next level. If the response is incorrect, the bot provides guidance and hints.
 
-At the fifth level, the user is allowed to send arbitrary requests to ChatGPT. If the user cannot manage within 50 requests, they will not be able to reach the fifth level.
+At the fifth level, the user is allowed to send arbitrary requests to ChatGPT. If the user cannot manage within 50 requests, they will not reach the fifth level.
 
 ## Database Structure
 
@@ -102,8 +116,26 @@ The database structures are found in the `db.sql` file.
 
 ![Screenshot2](./tgBot2.png)
 
+## Commands
+
+### npm run watchts
+
+Launches the TypeScript watcher that automatically compiles the JS code into the `build` directory.
+
+### npm run watchjs
+
+Launches the JS watcher that monitors changes in the `build` directory and automatically restarts Node.js. Both watchers need to be running for debugging.
+
+### npm run start
+
+Starts the project in production mode.
+
+### npm run format
+
+Runs Prettier to format all code files.
+
 ## Contact
 
-If you have any questions, feel free to contact me on Telegram:
+My Telegram for contact:
 
 [Joda Jackson](https://t.me/yodajackson)

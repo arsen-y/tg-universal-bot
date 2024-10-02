@@ -4,7 +4,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "npx nodemon",
     "watchjs": "npx nodemon --exec 'node ./build/index.js'",
     "watchts": "npx tsc --watch",
     "build": "rimraf build && npx tsc",
