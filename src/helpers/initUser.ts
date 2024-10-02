@@ -15,7 +15,9 @@ export async function initUser(id: number): Promise<User> {
       return new User(id, row.level, Boolean(row.level_initialized), row.count_msg_sended, chatContext)
     } else {
       // new user
-      await db.insert('INSERT INTO users SET id=?, level=?', [id, 1])
+      await db.insert('INSERT INTO users SET id=?, level=1, level_initialized=0, count_msg_sended=0, chat_context=""', [
+        id,
+      ])
 
       return new User(id, 1, false, 0, [])
     }

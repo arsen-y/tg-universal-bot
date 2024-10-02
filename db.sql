@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `id` int UNSIGNED NOT NULL,
+  `id` bigint UNSIGNED NOT NULL,
   `level` int UNSIGNED NOT NULL,
   `level_initialized` tinyint UNSIGNED NOT NULL,
   `count_msg_sended` int UNSIGNED NOT NULL,
