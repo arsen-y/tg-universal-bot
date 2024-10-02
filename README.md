@@ -40,9 +40,17 @@ UserRQ.run(msg, user)
 
 Структуры базы данных находятся в файле `db.sql`.
 
+## Скриншоты
+
 ![Скриншот1](./tgBot.png)
 
 ![Скриншот2](./tgBot2.png)
+
+## Контакты
+
+Мой Telegram для связи:
+
+[Joda Jackson](https://t.me/yodajackson)
 
 ---
 
@@ -88,6 +96,8 @@ At the fifth level, the user is allowed to send arbitrary requests to ChatGPT. I
 
 The database structures are found in the `db.sql` file.
 
+## Screenshots
+
 ![Screenshot1](./tgBot.png)
 
 ![Screenshot2](./tgBot2.png)
@@ -96,4 +106,4 @@ The database structures are found in the `db.sql` file.
 
 If you have any questions, feel free to contact me on Telegram:
 
-[Your Name](https://t.me/yodajackson)
+[Joda Jackson](https://t.me/yodajackson)
