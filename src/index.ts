@@ -78,7 +78,16 @@ bot.on('message', async (msg) => {
     if (e instanceof Error) {
       console.log(e.message)
     }
-    await bot.sendMessage(msg.chat.id, `С ботом произошла какая-то ошибка. Попробуйте позже или модифицируйте запрос.`)
+    try {
+      await bot.sendMessage(
+        msg.chat.id,
+        `С ботом произошла какая-то ошибка. Попробуйте позже или модифицируйте запрос.`,
+      )
+    } catch (e) {
+      if (e instanceof Error) {
+        console.log(e.message)
+      }
+    }
   }
 
   //console.log(msg);

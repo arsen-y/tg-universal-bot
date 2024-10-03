@@ -2,6 +2,7 @@ import { bot, db, openaiAPI } from '../index.js'
 import { AbstractMiddleware } from '../classes/AbstractMiddleware.js'
 import { User } from '../classes/User.js'
 import { ChatCompletionMessageParam } from 'openai/resources/index.mjs'
+import { sendAIReq } from '../helpers/sendAIReq.js'
 
 export class Level2 extends AbstractMiddleware {
   override async handle(msg: any, user: User) {
@@ -33,19 +34,7 @@ export class Level2 extends AbstractMiddleware {
         },
       ]
 
-      const response = await openaiAPI.chat.completions.create({
-        model: 'gpt-4o-mini',
-        messages: history,
-      })
-
-      let chatResponse = response.choices[0].message.content
-
-      history.push({ role: 'assistant', content: chatResponse })
-
-      await db.update('UPDATE users SET count_msg_sended=count_msg_sended+1, chat_context=? WHERE id=?', [
-        JSON.stringify(history, null, 2),
-        user.userId,
-      ])
+      let chatResponse = await sendAIReq(history, user)
 
       await bot.sendMessage(msg.chat.id, chatResponse)
 
@@ -66,19 +55,7 @@ export class Level2 extends AbstractMiddleware {
       Если я ответил правильно, напиши просто "yes", если неправильно, направь меня, дай подсказки.`,
     })
 
-    const response = await openaiAPI.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: user.chatContext,
-    })
-
-    let chatResponse = response.choices[0].message.content
-
-    user.chatContext.push({ role: 'assistant', content: chatResponse })
-
-    await db.update('UPDATE users SET count_msg_sended=count_msg_sended+1, chat_context=? WHERE id=?', [
-      JSON.stringify(user.chatContext, null, 2),
-      user.userId,
-    ])
+    let chatResponse = await sendAIReq(user.chatContext, user)
 
     if (/yes/i.test(chatResponse)) {
       // пользователь решил загадку

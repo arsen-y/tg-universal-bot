@@ -1,6 +1,7 @@
 import { bot, db, openaiAPI } from '../index.js'
 import { AbstractMiddleware } from '../classes/AbstractMiddleware.js'
 import { User } from '../classes/User.js'
+import { sendAIReq } from '../helpers/sendAIReq.js'
 
 export class Level5 extends AbstractMiddleware {
   override async handle(msg: any, user: User) {
@@ -33,19 +34,7 @@ export class Level5 extends AbstractMiddleware {
       content: msg.text,
     })
 
-    const response = await openaiAPI.chat.completions.create({
-      model: 'gpt-4o-mini',
-      messages: user.chatContext,
-    })
-
-    let chatResponse = response.choices[0].message.content
-
-    user.chatContext.push({ role: 'assistant', content: chatResponse })
-
-    await db.update('UPDATE users SET count_msg_sended=count_msg_sended+1, chat_context=? WHERE id=?', [
-      JSON.stringify(user.chatContext, null, 2),
-      user.userId,
-    ])
+    let chatResponse = await sendAIReq(user.chatContext, user)
 
     await bot.sendMessage(msg.chat.id, chatResponse)
 

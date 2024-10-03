@@ -8,11 +8,11 @@
 
 ### Глобальные объекты
 
-Глобальные объекты (такие как клиент OpenAI или клиент MySQL) находятся в файле `index.ts`. Эти объекты можно удобно импортировать из этого файла в любую часть приложения, либо можно создать для них отдельные классы, если это необходимо.
+Глобальные объекты (такие как клиент OpenAI или клиент MySQL) находятся в файле `index.ts`. Эти объекты можно удобно импортировать из этого файла в любую часть приложения, либо можно создать для них отдельные классы, если хотите увеличить уровень абстракции. 
 
 ### Работа с Middleware
 
-Благодаря интерфейсу `IMiddleware`, абстрактному классу `AbstractMiddleware`, а также классу `UserRequest`, можно удобно создавать цепочки middleware любой сложности. Цепочка вызывается последовательно. Следующий элемент вызывается только в том случае, если метод `handle` вернул `true`. Перед этим каждый раз с помощью `await` вызывается родительский метод `handle`, и проверяется его результат. В этом методе можно осуществлять глобальные проверки (в данном проекте это проверка общего количества отправленных в чат сообщений).
+Благодаря интерфейсу `IMiddleware`, абстрактному классу `AbstractMiddleware`, а также классу `UserRequest`, можно удобно создавать цепочки middleware любой сложности. Цепочка вызывается последовательно. Следующий элемент вызывается только в том случае, если метод `handle` вернул `true`. Перед этим каждый раз с `await` вызывается родительский метод `handle`, и проверяется его результат. В этом методе можно осуществлять глобальные проверки (в данном проекте это проверка общего количества отправленных в чат сообщений).
 
 ### Пример цепочки middleware в проекте
 
@@ -80,7 +80,7 @@ The bot has a simple yet powerful architecture. There is a router where routes a
 
 ### Global Objects
 
-Global objects (such as the OpenAI client or MySQL client) are located in the `index.ts` file. These objects can be easily imported into any part of the application, or you can create a separate classes for them if needed.
+Global objects (such as the OpenAI client or MySQL client) are located in the `index.ts` file. These objects can be easily imported into any part of the application, or you can create a separate classes for them if you want to increase the level of abstraction.
 
 ### Middleware System
 

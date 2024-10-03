@@ -14,9 +14,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `users` (
-  `id` bigint UNSIGNED NOT NULL,
+  `id` bigint NOT NULL,
   `level` int UNSIGNED NOT NULL,
   `level_initialized` tinyint UNSIGNED NOT NULL,
   `count_msg_sended` int UNSIGNED NOT NULL,
   `chat_context` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+COMMIT;
